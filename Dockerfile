@@ -1,15 +1,13 @@
-FROM ubuntu:xenial
-MAINTAINER Vincent BESANCON <besancon.vincent@gmail.com>
-
-ENV DEBIAN_FRONTEND noninteractive
+FROM ubuntu:16.04
+MAINTAINER Paul TREHIOU <paul.trehiou@gmail.com>
 
 # Upgrade packages
-RUN apt-get update -y && apt-get upgrade -y
-
-# Install requirements
-RUN apt-get install -y \
+RUN apt-get update -y && DEBIAN_FRONTEND=noninteractive apt-get install -y \
         software-properties-common \
-        openssh-server
+        openssh-server \
+        firefox \
+        lxde-core \
+        lxterminal
 
 # Install X2Go server components
 RUN add-apt-repository ppa:x2go/stable

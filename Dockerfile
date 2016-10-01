@@ -9,7 +9,7 @@ RUN apt-get update -y && DEBIAN_FRONTEND=noninteractive apt-get install -y \
         lxde-core \
         lxterminal && \
     add-apt-repository ppa:x2go/stable && apt-get update -y && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y x2goserver \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y x2goserver && \
     apt-get clean && apt-get autoremove
 
 # SSH runtime

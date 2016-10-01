@@ -7,12 +7,10 @@ RUN apt-get update -y && DEBIAN_FRONTEND=noninteractive apt-get install -y \
         openssh-server \
         firefox \
         lxde-core \
-        lxterminal
-
-# Install X2Go server components
-RUN add-apt-repository ppa:x2go/stable
-RUN apt-get update -y
-RUN apt-get install -y x2goserver
+        lxterminal && \
+    add-apt-repository ppa:x2go/stable && apt-get update -y && \
+    apt-get install -y x2goserver \
+    apt-get clean && apt-get autoremove
 
 # SSH runtime
 RUN mkdir /var/run/sshd
